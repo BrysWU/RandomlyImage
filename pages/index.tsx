@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Search Surprise</title>
+        <title>Randomly Image</title>
         <meta name="description" content="A modern, animated search image site" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
@@ -83,7 +83,7 @@ export default function Home() {
             animation: "fadeInDown 1.2s cubic-bezier(.6,-0.28,.74,.05)"
           }}
         >
-          Search Surprise
+          Randomly Image
         </h1>
         <SearchBar onSearch={handleSearch} loading={loading} />
         {imageUrl && search && (
