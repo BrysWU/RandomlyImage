@@ -1,0 +1,92 @@
+.container {
+  margin-top: 48px;
+  text-align: center;
+  animation: bounceIn 1.4s cubic-bezier(.23,1.01,.46,1.04);
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.85) translateY(40px);}
+  50% { opacity: 1; transform: scale(1.07) translateY(-4px);}
+  70% { opacity: 1; transform: scale(0.98) translateY(2px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,123,255,0.14), 0 2px 8px #1e1e1e;
+  background: #232b3a;
+  min-width: 340px;
+  min-height: 240px;
+}
+
+.image {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  min-height: 240px;
+  display: block;
+  filter: blur(22px) brightness(0.7) scale(0.92);
+  opacity: 0;
+  transform: scale(0.92) rotate(-2deg);
+  transition:
+    opacity 0.7s cubic-bezier(.6,-0.28,.74,.05),
+    filter 0.9s cubic-bezier(.23,1.01,.46,1.04),
+    transform 0.9s cubic-bezier(.23,1.01,.46,1.04);
+  will-change: opacity, filter, transform;
+}
+.image.visible {
+  opacity: 1;
+  filter: blur(0) brightness(1) scale(1);
+  transform: scale(1) rotate(0deg);
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30,30,30,0.7);
+  z-index: 2;
+  animation: fadeIn 0.6s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+
+.caption {
+  margin-top: 18px;
+  font-size: 1.15rem;
+  color: #b8c7e2;
+  letter-spacing: 0.04em;
+  animation: fadeInUp 1.2s cubic-bezier(.6,-0.28,.74,.05);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.captionText {
+  background: linear-gradient(90deg, #007bff44 0%, #212f49 100%);
+  padding: 0 12px;
+  border-radius: 8px;
+  display: inline-block;
+  animation: highlight 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes highlight {
+  0% { background: linear-gradient(90deg, #007bff44 0%, #212f49 100%); }
+  50% { background: linear-gradient(90deg, #212f49 0%, #007bff44 100%); }
+  100% { background: linear-gradient(90deg, #007bff44 0%, #212f49 100%); }
+}
+
+.query {
+  color: #007bff;
+  font-weight: bold;
+}

@@ -1,0 +1,118 @@
+.form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  background: rgba(30,30,30,0.96);
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
+  padding: 8px 16px;
+  position: relative;
+  animation: fadeInUp 1.2s cubic-bezier(.6,-0.28,.74,.05);
+  transition: box-shadow 0.4s, background 0.3s;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.focused {
+  box-shadow: 0 8px 40px 0 #007bff44, 0 2px 8px #1e1e1e;
+  background: rgba(30,30,50,0.99);
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  color: #fff;
+  padding: 10px 0;
+  transition: color 0.35s;
+  letter-spacing: 0.02em;
+}
+
+.input:disabled {
+  opacity: 0.7;
+}
+
+.button {
+  background: #007bff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: background 0.25s, box-shadow 0.25s;
+  box-shadow: 0 2px 12px rgba(0,123,255,0.16);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:active .ripple,
+.button:focus .ripple {
+  animation: ripple 0.6s cubic-bezier(.6,-0.28,.74,.05);
+}
+
+.button:disabled {
+  background: #2853a7;
+  cursor: not-allowed;
+}
+
+@keyframes ripple {
+  0% { opacity: 0.18; transform: scale(1);}
+  70% { opacity: 0.3; transform: scale(2.2);}
+  100% { opacity: 0; transform: scale(3);}
+}
+
+.ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.icon {
+  z-index: 2;
+  position: relative;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+}
+
+.searchingText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  font-size: 1.1rem;
+  color: #8fa7c8;
+  text-align: center;
+  margin-top: 8px;
+  opacity: 0.93;
+  animation: searchingFade 0.9s cubic-bezier(.6,-0.28,.74,.05);
+}
+
+@keyframes searchingFade {
+  from { opacity: 0; transform: translateY(8px);}
+  to { opacity: 0.93; transform: translateY(0);}
+}
